@@ -1,0 +1,119 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="85D79092-EADD-65B6-4BDD-07D8C4FAFCE2" name="Imprumuturi">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>7FF87449-EB3D-B640-C26A-D9DD6A07EF32</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id Imprumut" id="0954CAF0-DE2D-C83B-47BF-25218856E2E2">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>ECC087D6-7B2F-1B87-84B7-0C2F143A998E</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Carti id Carte" id="C102B97A-FA9B-82EC-A817-C3BB710365A7">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>F270618D-7A64-43B9-22B2-C0FAB84FA66B</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<referedAttribute>986DDA39-9FD2-A00D-1F5E-416063DBF92F</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Membri id membru" id="6F20EAFD-8FB1-897B-6308-D53623542C35">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>5EC893E1-D74D-62E2-AADA-EB58C5A2962E</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<referedAttribute>D4FDEEBA-92AE-9DE8-4D64-5FE69A4092C6</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="data imprumut" id="CAAA71B3-EBA7-611D-3189-C78CA858E361">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>443D60F5-1747-9076-DE76-3336130DE9C7</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="data returnare" id="B6FFEE04-0714-D689-6A96-E42DFEECE3A0">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>2A2675E1-BE15-357F-3744-C4ADEA7A8131</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="Bibliotecari id Bibliotecar" id="19C9135E-3883-A8E2-8552-9DDCC0B70CF7">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>35474939-A85F-D896-3577-E8A01F27A329</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<referedAttribute>F40C0B35-77E0-8883-D8AB-B70611114764</referedAttribute>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="82799B6C-ABD7-B894-E52A-60A88C17961C" name="Imprumuturi PK">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>A480772B-FC8C-39A0-CA1E-7C0C8AE1CF0A</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>0954CAF0-DE2D-C83B-47BF-25218856E2E2</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,138 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="EE1618A2-F754-7482-2991-056E198329E9" name="Membri">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>36581893-8283-5DBC-9347-C75652E233AE</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id membru" id="D4FDEEBA-92AE-9DE8-4D64-5FE69A4092C6">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>EFEA712A-48E7-C6D8-1C42-0A6A5DB5CFBD</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nume Membru" id="7CB4E6F9-37EF-155E-3B44-866A38198709">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>5C8B8117-08CF-F3F6-5788-4144DE0234F9</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="adresa" id="D166595C-A97E-801E-93E5-FEADD7403954">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>8B68593B-4085-2E7A-B5AD-6E3ADEEB4BAB</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="telefon" id="C43936E5-D1A9-DE03-DED8-6A41CCA4B5CA">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>2082E90E-226C-9C5D-9154-F4772EFA84ED</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="email" id="E70F0B98-3AC5-18D6-27FE-D5BC61254FAA">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>2902A9BC-AAD3-67B9-D925-7D4E73D1F9E6</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="CNP Membru" id="80F304A7-ECC1-50D5-3C8D-7A8EF691DE67">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>7BECCA7C-A8AD-254E-E009-80BE26B9F322</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>13</dataTypeSize>
+<ownDataTypeParameters>13,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="5210F70C-2E6A-A618-7628-D0FE85FFF54F" name="Membri PK">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>5E6C9E3A-4B88-9788-5929-B30A57224109</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<shouldEngineer>false</shouldEngineer>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="false"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>D4FDEEBA-92AE-9DE8-4D64-5FE69A4092C6</attributeRef>
+</usedAttributes>
+</identifier>
+<identifier id="C09C1FDC-7763-4209-3769-64414E279E53" name="Mem_tel_email_CNP_Membru_UN">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>E942E5A2-C02D-39A0-705B-02B0420EE8EF</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<usedAttributes>
+<attributeRef>C43936E5-D1A9-DE03-DED8-6A41CCA4B5CA</attributeRef>
+<attributeRef>E70F0B98-3AC5-18D6-27FE-D5BC61254FAA</attributeRef>
+<attributeRef>80F304A7-ECC1-50D5-3C8D-7A8EF691DE67</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,59 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="Membri" directorySegmentName="seg_0" id="36581893-8283-5DBC-9347-C75652E233AE">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:30 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="telefon" id="2082E90E-226C-9C5D-9154-F4772EFA84ED">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="email" id="2902A9BC-AAD3-67B9-D925-7D4E73D1F9E6">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="nume_Membru" id="5C8B8117-08CF-F3F6-5788-4144DE0234F9">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="CNP_Membru" id="7BECCA7C-A8AD-254E-E009-80BE26B9F322">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="adresa" id="8B68593B-4085-2E7A-B5AD-6E3ADEEB4BAB">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id_membru" id="EFEA712A-48E7-C6D8-1C42-0A6A5DB5CFBD">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="Membri_PK" id="5E6C9E3A-4B88-9788-5929-B30A57224109">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:30 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<uniqueKeys>
+<UniqueKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.UniqueOraclev10g" name="Membri_telefon_email_CNP_Membru_UN" id="E942E5A2-C02D-39A0-705B-02B0420EE8EF">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:30 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</UniqueKey>
+</uniqueKeys>
+</TableProxyOraclev11g>

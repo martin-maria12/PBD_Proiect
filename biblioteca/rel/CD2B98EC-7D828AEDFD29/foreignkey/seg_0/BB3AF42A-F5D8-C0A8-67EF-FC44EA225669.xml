@@ -1,0 +1,16 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="BB3AF42A-F5D8-C0A8-67EF-FC44EA225669" containerWithKeyObject="7FF87449-EB3D-B640-C26A-D9DD6A07EF32" localFKIndex="2E12FD4B-26CA-0D64-8FBD-C547107380A9" name="Imprumuturi_Bibliotecari_FK">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:53:34 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<referredTableLongName>Bibliotecari</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>013AC7AE-C056-68E4-12D4-0D3FC7F32A9A</referredTableID>
+<keyObject>D04844E0-D33A-8678-FE78-096C35CE457E</keyObject>
+<referredKeyID>D04844E0-D33A-8678-FE78-096C35CE457E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_Bibliotecar</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

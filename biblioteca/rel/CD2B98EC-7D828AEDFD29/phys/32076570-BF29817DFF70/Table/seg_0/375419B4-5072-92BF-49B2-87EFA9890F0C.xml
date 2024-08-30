@@ -1,0 +1,65 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="Detalii_Carte" directorySegmentName="seg_0" id="375419B4-5072-92BF-49B2-87EFA9890F0C">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:30 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="autor_Carte" id="05E8B360-A0EB-5646-B9CC-5281ACB891EC">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id_Detalii" id="08B9336E-C5F0-C67A-359C-0ADC8D13C1CB">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="gen_Carte" id="42FB1545-CC11-F572-5EBB-92FF90B8A644">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Carti_id_Carte" id="46541D27-6EE1-B99E-704B-51E7978DE4CB">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="data_publicarii" id="B1E9BB70-CF45-6800-5FD8-B2B19394E609">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="titlu_Carte" id="D25146E6-6283-D7CE-5CA5-3E54CA40040F">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<indexProxies>
+<IndexProxy class="oracle.dbtools.crest.model.design.storage.oracle.v10g.IndexProxyOraclev10g" name="Detalii_Carte__IDX" id="48FD8E7B-142E-0117-CCD2-DEE22461F9D9">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</IndexProxy>
+</indexProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Detalii_Carte_Carti_FK" id="0944618F-428B-B65E-2A6C-7A1EB22A1347">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:30 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="Detalii_Carte_PK" id="1125BEE8-EA3F-0203-50B6-84741BA4A196">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:30 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

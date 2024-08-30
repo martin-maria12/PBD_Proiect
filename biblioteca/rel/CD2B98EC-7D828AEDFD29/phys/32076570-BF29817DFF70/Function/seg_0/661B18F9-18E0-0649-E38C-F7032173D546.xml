@@ -1,0 +1,27 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FunctionOracle class="oracle.dbtools.crest.model.design.storage.oracle.FunctionOracle" name="get_carti_disponibile" directorySegmentName="seg_0" id="661B18F9-18E0-0649-E38C-F7032173D546">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-24 21:35:52 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<source>CREATE OR REPLACE FUNCTION get_carti_disponibile
+RETURN VARCHAR2 IS
+    v_message VARCHAR2(3000);
+BEGIN
+    FOR r IN (
+        SELECT titlu_carte, autor_carte, gen_carte
+        FROM detalii_carte d
+        WHERE d.carti_id_carte IN (
+            SELECT id_carte
+            FROM carti
+            WHERE status_carte = &apos;F&apos;
+        )
+    ) LOOP
+        v_message := &apos;Titlu: &apos; || r.titlu_carte || &apos;, Autor: &apos; || r.autor_carte || &apos;, Gen: &apos; || r.gen_carte;
+        DBMS_OUTPUT.PUT_LINE(v_message);
+    END LOOP;
+    RETURN &apos;Afisare completa.&apos;;
+EXCEPTION
+    WHEN OTHERS THEN
+        RETURN &apos;Eroare: &apos; || SQLERRM;
+END;</source>
+</FunctionOracle>

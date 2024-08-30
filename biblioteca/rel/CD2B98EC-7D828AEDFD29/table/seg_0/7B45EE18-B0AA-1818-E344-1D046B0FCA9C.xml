@@ -1,0 +1,47 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7B45EE18-B0AA-1818-E344-1D046B0FCA9C" name="Carti">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:27:52 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<ordsAlias>table_1</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_Carte" id="A4E30D48-EDF5-8E9C-937E-AC393A0006A7">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:32:17 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="status_Carte" id="32DC7CC5-7439-981F-629E-FDF44F722503">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:32:17 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT006</logicalDatatype>
+<dataTypeSize>1</dataTypeSize>
+<ownDataTypeParameters>1,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="83A23764-D4EC-593D-7B34-DB4CF1C37D45" name="Carti_PK">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:32:17 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="A4E30D48-EDF5-8E9C-937E-AC393A0006A7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

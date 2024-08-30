@@ -1,0 +1,116 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="375419B4-5072-92BF-49B2-87EFA9890F0C" name="Detalii_Carte">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 09:00:38 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<ordsAlias>table_5</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_Detalii" id="08B9336E-C5F0-C67A-359C-0ADC8D13C1CB">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 09:04:01 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Carti_id_Carte" id="46541D27-6EE1-B99E-704B-51E7978DE4CB">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 09:04:01 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="9FF8AA17-817E-1722-25B8-5BC572A0F944" referredColumn="A4E30D48-EDF5-8E9C-937E-AC393A0006A7"/>
+</associations>
+</Column>
+<Column name="titlu_Carte" id="D25146E6-6283-D7CE-5CA5-3E54CA40040F">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 09:04:01 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="autor_Carte" id="05E8B360-A0EB-5646-B9CC-5281ACB891EC">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 09:04:01 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="gen_Carte" id="42FB1545-CC11-F572-5EBB-92FF90B8A644">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 09:04:01 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="data_publicarii" id="B1E9BB70-CF45-6800-5FD8-B2B19394E609">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 09:04:01 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="1125BEE8-EA3F-0203-50B6-84741BA4A196" name="Detalii_Carte_PK">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 09:04:01 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="08B9336E-C5F0-C67A-359C-0ADC8D13C1CB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="48FD8E7B-142E-0117-CCD2-DEE22461F9D9" name="Detalii_Carte__IDX">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:27:24 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<indexState>Unique Plain Index</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<relationGeneratorID>BDEEFEE1-BDDA-E5B1-A8AD-6FA1AD2BE6FA</relationGeneratorID>
+<indexColumnUsage>
+<colUsage columnID="46541D27-6EE1-B99E-704B-51E7978DE4CB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0944618F-428B-B65E-2A6C-7A1EB22A1347" name="Detalii_Carte_Carti_FK">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 09:04:48 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="46541D27-6EE1-B99E-704B-51E7978DE4CB"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

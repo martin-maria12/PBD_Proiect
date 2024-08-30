@@ -1,0 +1,171 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<PackageOracle class="oracle.dbtools.crest.model.design.storage.oracle.PackageOracle" name="update_pkg" directorySegmentName="seg_0" id="0CAA75E3-99BD-5558-F53C-C60FE7C3B313">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-24 07:46:16 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<source>CREATE OR REPLACE PACKAGE update_pkg AS 
+    PROCEDURE update_bibliotecar(
+        p_id_bibliotecar   IN bibliotecari.id_bibliotecar%TYPE,
+        p_nume_bibliotecar IN bibliotecari.nume_bibliotecar%TYPE
+    );
+
+    PROCEDURE update_carte(
+        p_id_carte     IN carti.id_carte%TYPE,
+        p_status_carte IN carti.status_carte%TYPE
+    );
+
+    PROCEDURE update_detalii_carte(
+        p_id_detalii      IN detalii_carte.id_detalii%TYPE,
+        p_titlu_carte     IN detalii_carte.titlu_carte%TYPE,
+        p_autor_carte     IN detalii_carte.autor_carte%TYPE,
+        p_gen_carte       IN detalii_carte.gen_carte%TYPE,
+        p_data_publicarii IN detalii_carte.data_publicarii%TYPE
+    );
+
+    PROCEDURE update_membru(
+        p_id_membru   IN membri.id_membru%TYPE,
+        p_nume_membru IN membri.nume_membru%TYPE,
+        p_adresa      IN membri.adresa%TYPE,
+        p_telefon     IN membri.telefon%TYPE,
+        p_email       IN membri.email%TYPE,
+        p_cnp_membru  IN membri.cnp_membru%TYPE
+    );
+
+    PROCEDURE update_imprumut(
+        p_id_imprumut                 IN imprumuturi.id_imprumut%TYPE,
+        p_carti_id_carte              IN imprumuturi.carti_id_carte%TYPE,
+        p_membri_id_membru            IN imprumuturi.membri_id_membru%TYPE,
+        p_data_imprumut               IN imprumuturi.data_imprumut%TYPE,
+        p_data_returnare              IN imprumuturi.data_returnare%TYPE,
+        p_bibliotecari_id_bibliotecar IN imprumuturi.bibliotecari_id_bibliotecar%TYPE
+    );
+END;</source>
+<body class="oracle.dbtools.crest.model.design.storage.oracle.PackageBodyOracle" name="update_pkg" id="0CAA75E3-99BD-5558-F53C-C60FE7C3B313">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-24 07:46:40 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<source>CREATE OR REPLACE PACKAGE BODY update_pkg AS 
+    PROCEDURE update_bibliotecar(
+        p_id_bibliotecar   IN bibliotecari.id_bibliotecar%TYPE,
+        p_nume_bibliotecar IN bibliotecari.nume_bibliotecar%TYPE
+    ) IS
+    BEGIN
+    
+        SAVEPOINT update_bibliotecar_start;
+    
+        UPDATE bibliotecari
+        SET nume_bibliotecar = p_nume_bibliotecar
+        WHERE id_bibliotecar = p_id_bibliotecar;
+        
+        COMMIT;
+        
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO update_bibliotecar_start;
+            DBMS_OUTPUT.PUT_LINE(&apos;Eroare la actualizarea bibliotecarului: &apos; || SQLERRM);
+    END update_bibliotecar;
+
+    PROCEDURE update_carte(
+        p_id_carte     IN carti.id_carte%TYPE,
+        p_status_carte IN carti.status_carte%TYPE
+    ) IS
+    BEGIN
+    
+        SAVEPOINT update_carte_start;
+    
+        UPDATE carti
+        SET status_carte = p_status_carte
+        WHERE id_carte = p_id_carte;
+        
+        COMMIT;
+        
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO update_carte_start;
+            DBMS_OUTPUT.PUT_LINE(&apos;Eroare la actualizarea cartii: &apos; || SQLERRM);
+    END update_carte;
+
+    PROCEDURE update_detalii_carte(
+        p_id_detalii      IN detalii_carte.id_detalii%TYPE,
+        p_titlu_carte     IN detalii_carte.titlu_carte%TYPE,
+        p_autor_carte     IN detalii_carte.autor_carte%TYPE,
+        p_gen_carte       IN detalii_carte.gen_carte%TYPE,
+        p_data_publicarii IN detalii_carte.data_publicarii%TYPE
+    ) IS
+    BEGIN
+    
+        SAVEPOINT update_detalii_carte_start;    
+    
+        UPDATE detalii_carte
+        SET titlu_carte = p_titlu_carte,
+            autor_carte = p_autor_carte,
+            gen_carte = p_gen_carte,
+            data_publicarii = p_data_publicarii
+        WHERE id_detalii = p_id_detalii;
+        
+        COMMIT;
+        
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO update_detalii_carte_start;
+            DBMS_OUTPUT.PUT_LINE(&apos;Eroare la actualizarea detaliilor cartii: &apos; || SQLERRM);
+    END update_detalii_carte;
+
+    PROCEDURE update_membru(
+        p_id_membru   IN membri.id_membru%TYPE,
+        p_nume_membru IN membri.nume_membru%TYPE,
+        p_adresa      IN membri.adresa%TYPE,
+        p_telefon     IN membri.telefon%TYPE,
+        p_email       IN membri.email%TYPE,
+        p_cnp_membru  IN membri.cnp_membru%TYPE
+    ) IS
+    BEGIN
+    
+        SAVEPOINT update_membru_start;    
+    
+        UPDATE membri
+        SET nume_membru = p_nume_membru,
+            adresa = p_adresa,
+            telefon = p_telefon,
+            email = p_email,
+            cnp_membru = p_cnp_membru
+        WHERE id_membru = p_id_membru;
+        
+        COMMIT;
+        
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO update_membru_start;
+            DBMS_OUTPUT.PUT_LINE(&apos;Eroare la actualizarea membrului: &apos; || SQLERRM);
+    END update_membru;
+
+    PROCEDURE update_imprumut(
+        p_id_imprumut                 IN imprumuturi.id_imprumut%TYPE,
+        p_carti_id_carte              IN imprumuturi.carti_id_carte%TYPE,
+        p_membri_id_membru            IN imprumuturi.membri_id_membru%TYPE,
+        p_data_imprumut               IN imprumuturi.data_imprumut%TYPE,
+        p_data_returnare              IN imprumuturi.data_returnare%TYPE,
+        p_bibliotecari_id_bibliotecar IN imprumuturi.bibliotecari_id_bibliotecar%TYPE
+    ) IS
+    BEGIN
+    
+        SAVEPOINT update_imprumut_start;
+    
+        UPDATE imprumuturi
+        SET carti_id_carte = p_carti_id_carte,
+            membri_id_membru = p_membri_id_membru,
+            data_imprumut = p_data_imprumut,
+            data_returnare = p_data_returnare,
+            bibliotecari_id_bibliotecar = p_bibliotecari_id_bibliotecar
+        WHERE id_imprumut = p_id_imprumut;
+        
+        COMMIT;
+        
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO update_imprumut_start;
+            DBMS_OUTPUT.PUT_LINE(&apos;Eroare la actualizarea imprumutului: &apos; || SQLERRM);
+    END update_imprumut;
+END;</source>
+</body>
+</PackageOracle>

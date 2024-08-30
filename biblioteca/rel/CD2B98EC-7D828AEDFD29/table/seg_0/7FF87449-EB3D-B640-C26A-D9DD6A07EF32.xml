@@ -1,0 +1,134 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="7FF87449-EB3D-B640-C26A-D9DD6A07EF32" name="Imprumuturi">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:44:16 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<ordsAlias>table_3</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_Imprumut" id="ECC087D6-7B2F-1B87-84B7-0C2F143A998E">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:46:16 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Carti_id_Carte" id="47594C7D-0D1C-8FEE-3A03-1B981557D0F3">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:46:16 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="7C63ABA7-5624-B584-616D-99AA7265ACD8" referredColumn="A4E30D48-EDF5-8E9C-937E-AC393A0006A7"/>
+</associations>
+</Column>
+<Column name="Membri_id_membru" id="18CA1888-8A09-EDD0-E7B2-96B6CB9554F0">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:46:16 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="23331BDE-C8CF-75F2-5AB5-238DFE972801" referredColumn="EFEA712A-48E7-C6D8-1C42-0A6A5DB5CFBD"/>
+</associations>
+</Column>
+<Column name="data_imprumut" id="443D60F5-1747-9076-DE76-3336130DE9C7">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:46:16 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="data_returnare" id="2A2675E1-BE15-357F-3744-C4ADEA7A8131">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:46:16 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT007</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="Bibliotecari_id_Bibliotecar" id="F8840512-E2BE-D11A-427A-D5ABCF0F702E">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:46:16 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="BB3AF42A-F5D8-C0A8-67EF-FC44EA225669" referredColumn="E4AA0E1A-CC5D-0669-9EE7-8C84E1DB318B"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A480772B-FC8C-39A0-CA1E-7C0C8AE1CF0A" name="Imprumuturi_PK">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:46:16 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="ECC087D6-7B2F-1B87-84B7-0C2F143A998E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="D3BF74BF-D08B-0C47-4CCD-C4EAE9036581" name="Imprumuturi_Carti_FK">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:50:50 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="47594C7D-0D1C-8FEE-3A03-1B981557D0F3"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3883423F-961B-FEDF-5696-3A793A4E8764" name="Imprumuturi_Membri_FK">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:50:50 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="18CA1888-8A09-EDD0-E7B2-96B6CB9554F0"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="2E12FD4B-26CA-0D64-8FBD-C547107380A9" name="Imprumuturi_Bibliotecari_FK">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:53:34 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="F8840512-E2BE-D11A-427A-D5ABCF0F702E"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.constraint.TableLevelConstraint">
+<tableCheckConstraint name="Imprumuturi_CK_1" directorySegmentName="seg_0" id="2CDB7EA9-5D99-1225-3CED-DA453444CB82">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-25 14:00:00 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<rule><![CDATA[data_imprumut < data_returnare]]></rule>
+</tableCheckConstraint>
+</tableCheckConstraints>
+</Table>

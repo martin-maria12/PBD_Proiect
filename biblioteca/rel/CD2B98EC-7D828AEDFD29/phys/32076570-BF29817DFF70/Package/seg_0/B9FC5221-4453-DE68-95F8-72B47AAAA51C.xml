@@ -1,0 +1,165 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<PackageOracle class="oracle.dbtools.crest.model.design.storage.oracle.PackageOracle" name="delete_pkg" directorySegmentName="seg_0" id="B9FC5221-4453-DE68-95F8-72B47AAAA51C">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 21:36:35 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<source>CREATE OR REPLACE PACKAGE delete_pkg AS 
+    PROCEDURE delete_bibliotecar(
+        p_id_bibliotecar   IN bibliotecari.id_bibliotecar%TYPE,
+        p_ok          IN BOOLEAN DEFAULT FALSE
+    );
+
+    PROCEDURE delete_carte(
+        p_id_carte         IN carti.id_carte%TYPE,
+        p_ok          IN BOOLEAN DEFAULT FALSE
+    );
+
+    PROCEDURE delete_detalii_carte(
+        p_id_detalii       IN detalii_carte.id_detalii%TYPE
+    );
+
+    PROCEDURE delete_membru(
+        p_id_membru        IN membri.id_membru%TYPE,
+        p_ok          IN BOOLEAN DEFAULT FALSE
+    );
+
+    PROCEDURE delete_imprumut(
+        p_id_imprumut      IN imprumuturi.id_imprumut%TYPE
+    );
+END;</source>
+<body class="oracle.dbtools.crest.model.design.storage.oracle.PackageBodyOracle" name="delete_pkg" id="B9FC5221-4453-DE68-95F8-72B47AAAA51C">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-24 17:50:43 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<source>CREATE OR REPLACE PACKAGE BODY delete_pkg AS 
+  PROCEDURE delete_bibliotecar(
+          p_id_bibliotecar   IN bibliotecari.id_bibliotecar%TYPE,
+          p_ok          IN BOOLEAN DEFAULT FALSE
+      ) IS
+          v_count_imprumuturi INTEGER;
+      BEGIN
+      
+          SAVEPOINT delete_bibliotecar_start;
+          
+          SELECT COUNT(*) INTO v_count_imprumuturi
+          FROM imprumuturi
+          WHERE bibliotecari_id_bibliotecar = p_id_bibliotecar;
+  
+          IF p_ok = FALSE AND v_count_imprumuturi &gt; 0 THEN
+              RAISE_APPLICATION_ERROR(-20001, &apos;Nu se poate sterge bibliotecarul, exista imprumuturi asociate.&apos;);
+          END IF;
+  
+          IF p_ok = TRUE THEN
+              DELETE FROM imprumuturi WHERE bibliotecari_id_bibliotecar = p_id_bibliotecar;
+          END IF;
+  
+          DELETE FROM bibliotecari WHERE id_bibliotecar = p_id_bibliotecar;
+          
+          COMMIT;
+      EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO delete_bibliotecar_start;
+            RAISE;
+      END delete_bibliotecar;
+  
+      PROCEDURE delete_carte(
+          p_id_carte         IN carti.id_carte%TYPE,
+          p_ok          IN BOOLEAN DEFAULT FALSE
+      ) IS
+          v_count_imprumuturi INTEGER;
+          v_count_detalii     INTEGER;
+      BEGIN
+      
+          SAVEPOINT delete_carte_start;
+          
+          SELECT COUNT(*) INTO v_count_imprumuturi
+          FROM imprumuturi
+          WHERE carti_id_carte = p_id_carte;
+  
+          SELECT COUNT(*) INTO v_count_detalii
+          FROM detalii_carte
+          WHERE carti_id_carte = p_id_carte;
+  
+          IF p_ok = FALSE AND (v_count_imprumuturi &gt; 0 OR v_count_detalii &gt; 0) THEN
+              RAISE_APPLICATION_ERROR(-20002, &apos;Nu se poate sterge cartea, exista imprumuturi sau detalii asociate.&apos;);
+          END IF;
+  
+          IF p_ok = TRUE THEN
+              DELETE FROM imprumuturi WHERE carti_id_carte = p_id_carte;
+              DELETE FROM detalii_carte WHERE carti_id_carte = p_id_carte;
+          END IF;
+  
+          DELETE FROM carti WHERE id_carte = p_id_carte;
+          
+          COMMIT;
+          
+      EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO delete_carte_start;
+            RAISE;
+      END delete_carte;
+  
+      PROCEDURE delete_detalii_carte(
+          p_id_detalii       IN detalii_carte.id_detalii%TYPE
+      ) IS
+      BEGIN
+          SAVEPOINT delete_detalii_start;
+          
+          DELETE FROM detalii_carte WHERE id_detalii = p_id_detalii;
+          
+          COMMIT;
+          
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO sdelete_detalii_start;
+            RAISE;
+      END delete_detalii_carte;
+  
+      PROCEDURE delete_membru(
+          p_id_membru        IN membri.id_membru%TYPE,
+          p_ok          IN BOOLEAN DEFAULT FALSE
+      ) IS
+          v_count_imprumuturi INTEGER;
+      BEGIN
+      
+          SAVEPOINT delete_membru_start;
+          
+          SELECT COUNT(*) INTO v_count_imprumuturi
+          FROM imprumuturi
+          WHERE membri_id_membru = p_id_membru;
+  
+          IF p_ok = FALSE AND v_count_imprumuturi &gt; 0 THEN
+              RAISE_APPLICATION_ERROR(-20003, &apos;Nu se poate sterge membrul, exista imprumuturi asociate.&apos;);
+          END IF;
+  
+          IF p_ok = TRUE THEN
+              DELETE FROM imprumuturi WHERE membri_id_membru = p_id_membru;
+          END IF;
+  
+          DELETE FROM membri WHERE id_membru = p_id_membru;
+          
+          COMMIT;
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO delete_membru_start;
+            RAISE;
+      END delete_membru;
+  
+      PROCEDURE delete_imprumut(
+          p_id_imprumut      IN imprumuturi.id_imprumut%TYPE
+      ) IS
+      BEGIN
+      
+          SAVEPOINT delete_imprumut_start;
+          
+          DELETE FROM imprumuturi WHERE id_imprumut = p_id_imprumut;
+          
+          COMMIT;
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO delete_imprumut_start;
+            RAISE;
+    END delete_imprumut;
+END;</source>
+</body>
+</PackageOracle>

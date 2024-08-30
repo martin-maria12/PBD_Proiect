@@ -1,0 +1,105 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<PackageOracle class="oracle.dbtools.crest.model.design.storage.oracle.PackageOracle" name="view_pkg" directorySegmentName="seg_0" id="E17A9951-5FFC-A429-73AD-B8BF39E7E059">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 22:14:47 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<source>CREATE OR REPLACE PACKAGE view_pkg AS 
+    PROCEDURE view_imprumuturi_by_membru(
+        p_id_membru IN membri.id_membru%TYPE
+    );
+    
+    PROCEDURE view_imprumuturi_by_carte(
+        p_id_carte IN carti.id_carte%TYPE
+    );
+    
+    PROCEDURE view_detalii_carte_by_carte(
+        p_id_carte IN carti.id_carte%TYPE
+    );
+    
+    PROCEDURE view_imprumuturi_by_bibliotecar(
+        p_id_bibliotecar IN bibliotecari.id_bibliotecar%TYPE
+    );
+END;</source>
+<body class="oracle.dbtools.crest.model.design.storage.oracle.PackageBodyOracle" name="view_pkg" id="E17A9951-5FFC-A429-73AD-B8BF39E7E059">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 22:15:09 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<source>CREATE OR REPLACE PACKAGE BODY view_pkg AS 
+    PROCEDURE view_imprumuturi_by_membru(p_id_membru IN membri.id_membru%TYPE) IS
+    BEGIN
+        FOR r IN (
+            SELECT i.id_imprumut, i.carti_id_carte, i.membri_id_membru, i.data_imprumut, i.data_returnare, i.bibliotecari_id_bibliotecar, 
+                   c.titlu_carte, c.autor_carte, c.gen_carte, c.data_publicarii
+            FROM imprumuturi i, detalii_carte c
+            WHERE i.carti_id_carte = c.carti_id_carte AND i.membri_id_membru = p_id_membru
+        ) LOOP
+            DBMS_OUTPUT.PUT_LINE(&apos;Imprumut ID: &apos; || r.id_imprumut || &apos;, Carte ID: &apos; || r.carti_id_carte || 
+                                 &apos;, Titlu: &apos; || r.titlu_carte || &apos;, Autor: &apos; || r.autor_carte || 
+                                 &apos;, Data Imprumut: &apos; || r.data_imprumut || &apos;, Data Returnare: &apos; || r.data_returnare || 
+                                 &apos;, Bibliotecar ID: &apos; || r.bibliotecari_id_bibliotecar);
+        END LOOP;
+        
+        EXCEPTION
+            WHEN OTHERS THEN
+                DBMS_OUTPUT.PUT_LINE(&apos;Eroare la vizualizarea imprumuturilor pentru membru: &apos; || SQLERRM);
+    END view_imprumuturi_by_membru;
+
+    PROCEDURE view_imprumuturi_by_carte(p_id_carte IN carti.id_carte%TYPE) IS
+    BEGIN
+        FOR r IN (
+            SELECT i.id_imprumut, i.carti_id_carte, i.membri_id_membru, i.data_imprumut, i.data_returnare, i.bibliotecari_id_bibliotecar,
+                   m.nume_membru, m.adresa, m.telefon, m.email, m.cnp_membru
+            FROM imprumuturi i, membri m
+            WHERE i.membri_id_membru = m.id_membru AND i.carti_id_carte = p_id_carte
+        ) LOOP
+            DBMS_OUTPUT.PUT_LINE(&apos;Imprumut ID: &apos; || r.id_imprumut || &apos;, Carte ID: &apos; || r.carti_id_carte || 
+                                 &apos;, Membru: &apos; || r.nume_membru || &apos;, Adresa: &apos; || r.adresa || 
+                                 &apos;, Data Imprumut: &apos; || r.data_imprumut || &apos;, Data Returnare: &apos; || r.data_returnare || 
+                                 &apos;, Bibliotecar ID: &apos; || r.bibliotecari_id_bibliotecar);
+        END LOOP;
+        
+        EXCEPTION
+            WHEN OTHERS THEN
+                DBMS_OUTPUT.PUT_LINE(&apos;Eroare la vizualizarea imprumuturilor pentru carte: &apos; || SQLERRM);
+    END view_imprumuturi_by_carte;
+
+    PROCEDURE view_detalii_carte_by_carte(p_id_carte IN carti.id_carte%TYPE) IS
+    BEGIN
+        FOR r IN (
+            SELECT d.id_detalii, d.carti_id_carte, d.titlu_carte, d.autor_carte, d.gen_carte, d.data_publicarii
+            FROM detalii_carte d
+            WHERE d.carti_id_carte = p_id_carte
+        ) LOOP
+            DBMS_OUTPUT.PUT_LINE(&apos;Detalii Carte ID: &apos; || r.id_detalii || &apos;, Carte ID: &apos; || r.carti_id_carte || 
+                                 &apos;, Titlu: &apos; || r.titlu_carte || &apos;, Autor: &apos; || r.autor_carte || 
+                                 &apos;, Gen: &apos; || r.gen_carte || &apos;, Data Publicarii: &apos; || r.data_publicarii);
+        END LOOP;
+        EXCEPTION
+            WHEN OTHERS THEN
+                DBMS_OUTPUT.PUT_LINE(&apos;Eroare la vizualizarea detaliilor pentru carte: &apos; || SQLERRM);
+    END view_detalii_carte_by_carte;
+
+    PROCEDURE view_imprumuturi_by_bibliotecar(p_id_bibliotecar IN bibliotecari.id_bibliotecar%TYPE) IS
+    BEGIN
+        FOR r IN (
+            SELECT i.id_imprumut, i.carti_id_carte, i.membri_id_membru, i.data_imprumut, i.data_returnare, i.bibliotecari_id_bibliotecar,
+                   m.nume_membru, m.adresa, m.telefon, m.email, m.cnp_membru,
+                   d.titlu_carte, d.autor_carte, d.gen_carte, d.data_publicarii
+            FROM imprumuturi i, membri m, detalii_carte d
+            WHERE i.membri_id_membru = m.id_membru 
+              AND i.carti_id_carte = d.carti_id_carte
+              AND i.bibliotecari_id_bibliotecar = p_id_bibliotecar
+        ) LOOP
+            DBMS_OUTPUT.PUT_LINE(&apos;Imprumut ID: &apos; || r.id_imprumut || &apos;, Carte ID: &apos; || r.carti_id_carte || 
+                                 &apos;, Membru: &apos; || r.nume_membru || &apos;, Adresa: &apos; || r.adresa || 
+                                 &apos;, Titlu: &apos; || r.titlu_carte || &apos;, Autor: &apos; || r.autor_carte || 
+                                 &apos;, Data Imprumut: &apos; || r.data_imprumut || &apos;, Data Returnare: &apos; || r.data_returnare || 
+                                 &apos;, Bibliotecar ID: &apos; || r.bibliotecari_id_bibliotecar);
+        END LOOP;
+        EXCEPTION
+            WHEN OTHERS THEN
+                DBMS_OUTPUT.PUT_LINE(&apos;Eroare la vizualizarea imprumuturilor pentru bibliotecar: &apos; || SQLERRM);
+    END view_imprumuturi_by_bibliotecar;
+END;</source>
+</body>
+</PackageOracle>

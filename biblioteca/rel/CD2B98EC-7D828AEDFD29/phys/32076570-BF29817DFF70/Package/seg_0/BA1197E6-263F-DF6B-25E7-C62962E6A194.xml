@@ -1,0 +1,57 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<PackageOracle class="oracle.dbtools.crest.model.design.storage.oracle.PackageOracle" name="cursor_pkg" directorySegmentName="seg_0" id="BA1197E6-263F-DF6B-25E7-C62962E6A194">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-24 20:41:25 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<source>CREATE OR REPLACE PACKAGE cursor_pkg AS 
+    PROCEDURE verifica_imprumuturi_si_actualizeaza;
+END;</source>
+<body class="oracle.dbtools.crest.model.design.storage.oracle.PackageBodyOracle" name="cursor_pkg" id="BA1197E6-263F-DF6B-25E7-C62962E6A194">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-24 20:41:48 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<source>CREATE OR REPLACE PACKAGE BODY cursor_pkg AS 
+    PROCEDURE verifica_imprumuturi_si_actualizeaza IS
+        CURSOR imprumuturi_cursor IS
+            SELECT id_imprumut, carti_id_carte, data_returnare
+            FROM imprumuturi;
+        imprumut_rec imprumuturi_cursor%ROWTYPE;
+    BEGIN
+    
+        SAVEPOINT cursor_pkg_start;
+    
+        OPEN imprumuturi_cursor;
+        LOOP
+            FETCH imprumuturi_cursor INTO imprumut_rec;
+            EXIT WHEN imprumuturi_cursor%NOTFOUND;
+
+            IF imprumut_rec.data_returnare &lt; SYSDATE THEN
+                UPDATE carti
+                SET status_carte = &apos;F&apos;
+                WHERE id_carte = imprumut_rec.carti_id_carte;
+
+                DBMS_OUTPUT.PUT_LINE(&apos;Imprumut ID: &apos; || imprumut_rec.id_imprumut || &apos; - Status carte actualizat la: F (disponibil)&apos;);
+            ELSE
+                UPDATE carti
+                SET status_carte = &apos;T&apos;
+                WHERE id_carte = imprumut_rec.carti_id_carte;
+
+                DBMS_OUTPUT.PUT_LINE(&apos;Imprumut ID: &apos; || imprumut_rec.id_imprumut || &apos; - Status carte actualizat la: T (imprumutat)&apos;);
+            END IF;
+        END LOOP;
+        CLOSE imprumuturi_cursor;
+        
+        COMMIT;
+        
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO cursor_pkg_start;
+            DBMS_OUTPUT.PUT_LINE(&apos;Eroare la actualizarea statusului cartilor: &apos; || SQLERRM);
+            IF imprumuturi_cursor%ISOPEN THEN
+                CLOSE imprumuturi_cursor;
+            END IF;
+            RAISE;
+    END verifica_imprumuturi_si_actualizeaza;
+END;</source>
+</body>
+</PackageOracle>

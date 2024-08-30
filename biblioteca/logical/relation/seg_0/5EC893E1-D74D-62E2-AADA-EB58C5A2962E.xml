@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Imprumuturi_Membri_FK" directorySegmentName="seg_0" id="5EC893E1-D74D-62E2-AADA-EB58C5A2962E">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>23331BDE-C8CF-75F2-5AB5-238DFE972801</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<sourcePk>5210F70C-2E6A-A618-7628-D0FE85FFF54F</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>EE1618A2-F754-7482-2991-056E198329E9</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>85D79092-EADD-65B6-4BDD-07D8C4FAFCE2</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

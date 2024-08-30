@@ -1,0 +1,75 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="Imprumuturi" directorySegmentName="seg_0" id="7FF87449-EB3D-B640-C26A-D9DD6A07EF32">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:30 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="Membri_id_membru" id="18CA1888-8A09-EDD0-E7B2-96B6CB9554F0">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="data_returnare" id="2A2675E1-BE15-357F-3744-C4ADEA7A8131">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="data_imprumut" id="443D60F5-1747-9076-DE76-3336130DE9C7">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Carti_id_Carte" id="47594C7D-0D1C-8FEE-3A03-1B981557D0F3">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id_Imprumut" id="ECC087D6-7B2F-1B87-84B7-0C2F143A998E">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="Bibliotecari_id_Bibliotecar" id="F8840512-E2BE-D11A-427A-D5ABCF0F702E">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<foreignKeys>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Imprumuturi_Bibliotecari_FK" id="2E12FD4B-26CA-0D64-8FBD-C547107380A9">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:30 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Imprumuturi_Membri_FK" id="3883423F-961B-FEDF-5696-3A793A4E8764">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:30 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ForeignKey>
+<ForeignKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.FKProxyOraclev10g" name="Imprumuturi_Carti_FK" id="D3BF74BF-D08B-0C47-4CCD-C4EAE9036581">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:30 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ForeignKey>
+</foreignKeys>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="Imprumuturi_PK" id="A480772B-FC8C-39A0-CA1E-7C0C8AE1CF0A">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:30 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+<tableCheckConstraints itemClass="oracle.dbtools.crest.model.design.storage.oracle.TableCheckConstraintOracle">
+<TableCheckConstraint name="Imprumuturi_CK_1" id="2CDB7EA9-5D99-1225-3CED-DA453444CB82">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-25 14:00:00 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</TableCheckConstraint>
+</tableCheckConstraints>
+</TableProxyOraclev11g>

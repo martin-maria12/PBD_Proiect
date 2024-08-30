@@ -1,0 +1,107 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="36581893-8283-5DBC-9347-C75652E233AE" name="Membri">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:34:09 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<ordsAlias>table_2</ordsAlias>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_membru" id="EFEA712A-48E7-C6D8-1C42-0A6A5DB5CFBD">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:40:18 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT011</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nume_Membru" id="5C8B8117-08CF-F3F6-5788-4144DE0234F9">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:40:18 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="adresa" id="8B68593B-4085-2E7A-B5AD-6E3ADEEB4BAB">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:40:18 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="telefon" id="2082E90E-226C-9C5D-9154-F4772EFA84ED">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:40:18 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="2902A9BC-AAD3-67B9-D925-7D4E73D1F9E6">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:40:18 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>255</dataTypeSize>
+<ownDataTypeParameters>255,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="CNP_Membru" id="7BECCA7C-A8AD-254E-E009-80BE26B9F322">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:40:18 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>13</dataTypeSize>
+<ownDataTypeParameters>13,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="5E6C9E3A-4B88-9788-5929-B30A57224109" name="Membri_PK">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:40:18 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="EFEA712A-48E7-C6D8-1C42-0A6A5DB5CFBD"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="E942E5A2-C02D-39A0-705B-02B0420EE8EF" name="Mem_tel_email_CNP_Membru_UN">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-22 20:43:27 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<indexState>Unique Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="2082E90E-226C-9C5D-9154-F4772EFA84ED"/>
+<colUsage columnID="2902A9BC-AAD3-67B9-D925-7D4E73D1F9E6"/>
+<colUsage columnID="7BECCA7C-A8AD-254E-E009-80BE26B9F322"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

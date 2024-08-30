@@ -1,0 +1,20 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="Imprumuturi_Bibliotecari_FK" directorySegmentName="seg_0" id="35474939-A85F-D896-3577-E8A01F27A329">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:21:23 UTC</createdTime>
+<generatorID>BB3AF42A-F5D8-C0A8-67EF-FC44EA225669</generatorID>
+<ownerDesignName>biblioteca</ownerDesignName>
+<engineerTo>
+<item key="CD2B98EC-F79D-4AFE-E64D-7D828AEDFD29" value="true"/>
+</engineerTo>
+<sourcePk>0A607617-97E0-C5E0-A07A-EB3560C0462B</sourcePk>
+<identifying>false</identifying>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>6A34BE3E-29C6-F16E-1568-7D5CAF2E0FF1</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>85D79092-EADD-65B6-4BDD-07D8C4FAFCE2</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

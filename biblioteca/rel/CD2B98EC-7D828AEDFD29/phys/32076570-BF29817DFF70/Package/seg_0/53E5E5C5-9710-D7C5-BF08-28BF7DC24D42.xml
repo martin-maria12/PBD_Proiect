@@ -1,0 +1,188 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<PackageOracle class="oracle.dbtools.crest.model.design.storage.oracle.PackageOracle" name="insert_pkg" directorySegmentName="seg_0" id="53E5E5C5-9710-D7C5-BF08-28BF7DC24D42">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 20:41:51 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<source>CREATE OR REPLACE PACKAGE insert_pkg AS 
+    FUNCTION adauga_carte(
+        p_id_carte     IN INTEGER,
+        p_status_carte IN CHAR
+    ) RETURN VARCHAR2;
+    
+    FUNCTION adauga_detalii_carte(
+        p_id_detalii      IN INTEGER,
+        p_carti_id_carte  IN INTEGER,
+        p_titlu_carte     IN VARCHAR2,
+        p_autor_carte     IN VARCHAR2,
+        p_gen_carte       IN VARCHAR2,
+        p_data_publicarii IN DATE
+    ) RETURN VARCHAR2;
+    
+    FUNCTION adauga_membru(
+        p_id_membru   IN INTEGER,
+        p_nume_membru IN VARCHAR2,
+        p_adresa      IN VARCHAR2,
+        p_telefon     IN VARCHAR2,
+        p_email       IN VARCHAR2,
+        p_cnp_membru  IN VARCHAR2
+    ) RETURN VARCHAR2;
+    
+    FUNCTION adauga_bibliotecar(
+        p_id_bibliotecar   IN INTEGER,
+        p_nume_bibliotecar IN VARCHAR2
+    ) RETURN VARCHAR2;
+    
+    FUNCTION adauga_imprumut(
+        p_id_imprumut                 IN INTEGER,
+        p_carti_id_carte              IN INTEGER,
+        p_membri_id_membru            IN INTEGER,
+        p_data_imprumut               IN DATE,
+        p_data_returnare              IN DATE,
+        p_bibliotecari_id_bibliotecar IN INTEGER
+    ) RETURN VARCHAR2;
+END;</source>
+<body class="oracle.dbtools.crest.model.design.storage.oracle.PackageBodyOracle" name="insert_pkg" id="53E5E5C5-9710-D7C5-BF08-28BF7DC24D42">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 20:42:26 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<source>CREATE OR REPLACE PACKAGE BODY insert_pkg AS 
+    FUNCTION adauga_carte(
+        p_id_carte     IN INTEGER,
+        p_status_carte IN CHAR
+    ) RETURN VARCHAR2 IS
+    BEGIN
+    
+        SAVEPOINT adauga_carte_start;
+    
+        INSERT INTO carti (id_carte, status_carte)
+        VALUES (p_id_carte, p_status_carte);
+        
+        COMMIT;
+        
+        RETURN &apos;Carte adaugata cu succes&apos;;
+        
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO adauga_carte_start;
+            RETURN &apos;Eroare la adaugarea cartii: &apos; || SQLERRM;
+    END adauga_carte;
+    
+    FUNCTION adauga_detalii_carte(
+        p_id_detalii      IN INTEGER,
+        p_carti_id_carte  IN INTEGER,
+        p_titlu_carte     IN VARCHAR2,
+        p_autor_carte     IN VARCHAR2,
+        p_gen_carte       IN VARCHAR2,
+        p_data_publicarii IN DATE
+    ) RETURN VARCHAR2 IS
+        v_exists INTEGER;
+    BEGIN
+    
+        SAVEPOINT adauga_detalii_carte_start;
+        
+        SELECT COUNT(*) INTO v_exists FROM carti WHERE id_carte = p_carti_id_carte;
+        IF v_exists = 0 THEN
+            RETURN &apos;Eroare: Carte cu id-ul specificat nu exista&apos;;
+        END IF;
+        
+        INSERT INTO detalii_carte (id_detalii, carti_id_carte, titlu_carte, autor_carte, gen_carte, data_publicarii)
+        VALUES (p_id_detalii, p_carti_id_carte, p_titlu_carte, p_autor_carte, p_gen_carte, p_data_publicarii);
+        
+        COMMIT;
+        
+        RETURN &apos;Detalii carte adaugate cu succes&apos;;
+        
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO adauga_detalii_carte_start;
+            RETURN &apos;Eroare la adaugarea detaliilor cartii: &apos; || SQLERRM;
+    END adauga_detalii_carte;
+    
+    FUNCTION adauga_membru(
+        p_id_membru   IN INTEGER,
+        p_nume_membru IN VARCHAR2,
+        p_adresa      IN VARCHAR2,
+        p_telefon     IN VARCHAR2,
+        p_email       IN VARCHAR2,
+        p_cnp_membru  IN VARCHAR2
+    ) RETURN VARCHAR2 IS
+    BEGIN
+    
+        SAVEPOINT adauga_membru_start;
+        
+        INSERT INTO membri (id_membru, nume_membru, adresa, telefon, email, cnp_membru)
+        VALUES (p_id_membru, p_nume_membru, p_adresa, p_telefon, p_email, p_cnp_membru);
+        
+        COMMIT;
+        
+        RETURN &apos;Membru adaugat cu succes&apos;;
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO adauga_membru_start;
+            RETURN &apos;Eroare la adaugarea membrului: &apos; || SQLERRM;
+    END adauga_membru;
+    
+    FUNCTION adauga_bibliotecar(
+        p_id_bibliotecar   IN INTEGER,
+        p_nume_bibliotecar IN VARCHAR2
+    ) RETURN VARCHAR2 IS
+    BEGIN
+    
+        SAVEPOINT adauga_bibliotecar_start;
+        
+        INSERT INTO bibliotecari (id_bibliotecar, nume_bibliotecar)
+        VALUES (p_id_bibliotecar, p_nume_bibliotecar);
+        
+        COMMIT;
+        
+        RETURN &apos;Bibliotecar adaugat cu succes&apos;;
+        
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO adauga_bibliotecar_start;
+            RETURN &apos;Eroare la adaugarea bibliotecarului: &apos; || SQLERRM;
+    END adauga_bibliotecar;
+    
+    FUNCTION adauga_imprumut(
+        p_id_imprumut                 IN INTEGER,
+        p_carti_id_carte              IN INTEGER,
+        p_membri_id_membru            IN INTEGER,
+        p_data_imprumut               IN DATE,
+        p_data_returnare              IN DATE,
+        p_bibliotecari_id_bibliotecar IN INTEGER
+    ) RETURN VARCHAR2 IS
+        v_exists INTEGER;
+    BEGIN
+    
+        SAVEPOINT adauga_imprumut_start;
+        
+        SELECT COUNT(*) INTO v_exists FROM carti WHERE id_carte = p_carti_id_carte;
+        IF v_exists = 0 THEN
+            RETURN &apos;Eroare: Carte cu id-ul specificat nu exista&apos;;
+        END IF;
+        
+        SELECT COUNT(*) INTO v_exists FROM membri WHERE id_membru = p_membri_id_membru;
+        IF v_exists = 0 THEN
+            RETURN &apos;Eroare: Membru cu id-ul specificat nu exista&apos;;
+        END IF;
+        
+        SELECT COUNT(*) INTO v_exists FROM bibliotecari WHERE id_bibliotecar = p_bibliotecari_id_bibliotecar;
+        IF v_exists = 0 THEN
+            RETURN &apos;Eroare: Bibliotecar cu id-ul specificat nu exista&apos;;
+        END IF;
+        
+        INSERT INTO imprumuturi (id_imprumut, carti_id_carte, membri_id_membru, data_imprumut, data_returnare, bibliotecari_id_bibliotecar)
+        VALUES (p_id_imprumut, p_carti_id_carte, p_membri_id_membru, p_data_imprumut, p_data_returnare, p_bibliotecari_id_bibliotecar);
+        
+        COMMIT;
+        
+        RETURN &apos;Imprumut adaugat cu succes&apos;;
+        
+    EXCEPTION
+        WHEN OTHERS THEN
+            ROLLBACK TO adauga_imprumut_start;
+            RETURN &apos;Eroare la adaugarea imprumutului: &apos; || SQLERRM;
+    END adauga_imprumut;    
+END;</source>
+</body>
+</PackageOracle>

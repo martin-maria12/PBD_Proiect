@@ -1,0 +1,31 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TableProxyOraclev11g class="oracle.dbtools.crest.model.design.storage.oracle.v11g.TableProxyOraclev11g" name="Bibliotecari" directorySegmentName="seg_0" id="013AC7AE-C056-68E4-12D4-0D3FC7F32A9A">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<logging>YES</logging>
+<partitionedRowMovement>DISABLE</partitionedRowMovement>
+<temporaryChanged>false</temporaryChanged>
+<accessDriverType>oracle_loader</accessDriverType>
+<rejectLimit></rejectLimit>
+<columnProxies itemClass="oracle.dbtools.crest.model.design.storage.oracle.v12c.ColumnProxyOraclev12c">
+<ColumnProxy name="nume_Bibliotecar" id="29C95618-477E-331F-A4B1-96A8FD73FBB7">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+<ColumnProxy name="id_Bibliotecar" id="E4AA0E1A-CC5D-0669-9EE7-8C84E1DB318B">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:29 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+</ColumnProxy>
+</columnProxies>
+<primaryKeys>
+<PrimaryKey class="oracle.dbtools.crest.model.design.storage.oracle.v10g.PKProxyOraclev10g" name="Bibliotecari_PK" id="D04844E0-D33A-8678-FE78-096C35CE457E">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-23 11:29:30 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<indexSort>SORTED</indexSort>
+</PrimaryKey>
+</primaryKeys>
+</TableProxyOraclev11g>

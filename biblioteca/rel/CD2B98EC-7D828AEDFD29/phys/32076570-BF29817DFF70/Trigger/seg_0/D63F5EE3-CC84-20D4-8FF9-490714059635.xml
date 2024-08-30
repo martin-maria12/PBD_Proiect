@@ -1,0 +1,41 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<TriggerOraclev10g class="oracle.dbtools.crest.model.design.storage.oracle.v10g.TriggerOraclev10g" name="check_return" directorySegmentName="seg_0" id="D63F5EE3-CC84-20D4-8FF9-490714059635">
+<createdBy>Maria</createdBy>
+<createdTime>2024-05-24 21:08:20 UTC</createdTime>
+<ownerDesignName>biblioteca</ownerDesignName>
+<actions>INSERT, UPDATE</actions>
+<body><![CDATA[DECLARE
+    v_titlu_carte VARCHAR2(255);
+    v_nume_membru VARCHAR2(255);
+    v_zile_intarziere INTEGER;
+    v_status_carte CHAR(1);
+BEGIN
+    SELECT status_carte INTO v_status_carte
+    FROM carti
+    WHERE id_carte = :NEW.carti_id_carte;
+    
+    IF v_status_carte = 'T' AND :NEW.data_returnare < SYSDATE AND :NEW.data_returnare IS NOT NULL THEN
+       
+        SELECT titlu_carte INTO v_titlu_carte
+        FROM detalii_carte
+        WHERE carti_id_carte = :NEW.carti_id_carte;
+
+        
+        SELECT nume_membru INTO v_nume_membru
+        FROM membri
+        WHERE id_membru = :NEW.membri_id_membru;
+
+        v_zile_intarziere := FLOOR(SYSDATE - :NEW.data_returnare);
+
+        DBMS_OUTPUT.PUT_LINE('Membrul ' || v_nume_membru || ' nu a returnat cartea "' || v_titlu_carte || '" la timp.');
+        DBMS_OUTPUT.PUT_LINE('Numar de zile de intarziere: ' || v_zile_intarziere);
+    END IF;
+EXCEPTION
+    WHEN NO_DATA_FOUND THEN
+        DBMS_OUTPUT.PUT_LINE('Eroare: Datele nu au fost gasite.');
+    WHEN OTHERS THEN
+        DBMS_OUTPUT.PUT_LINE('Eroare la verificarea imprumuturilor: ' || SQLERRM);
+END;]]></body>
+<triggerTime>AFTER</triggerTime>
+<table>7FF87449-EB3D-B640-C26A-D9DD6A07EF32</table>
+</TriggerOraclev10g>
